@@ -1,0 +1,18 @@
+.tooltip {
+    position: fixed;
+    color: var(--text-light-color);
+    padding: var(--small-padding);
+    box-sizing: border-box;
+    transform: translate(-50%, calc(-100% - 6px));
+    z-index: 999;
+    opacity: 0.85;
+
+    &::before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: calc(50% - 5px);
+        bottom: -5px;
+    }
+}

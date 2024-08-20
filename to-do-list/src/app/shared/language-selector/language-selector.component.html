@@ -1,0 +1,12 @@
+<button mat-button [matMenuTriggerFor]="languageMenu">
+    <mat-icon>language</mat-icon>
+    <span i18n="@@language">Language</span>
+</button>
+<mat-menu #languageMenu="matMenu">
+    <a href="{{ router.url }}" mat-menu-item>
+        English
+    </a>
+    <a href="/ru{{ router.url }}" mat-menu-item>
+        Русский
+    </a>
+</mat-menu>

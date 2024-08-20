@@ -1,0 +1,17 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="side-nav">
+  <h1 class="header">TaskBoard</h1>
+  <div class="navigation">
+      <a mat-button [routerLink]="'/backlog'" routerLinkActive="selected" [appTooltip]="translations.navigateToBacklog" i18n="@@backlog">
+          Backlog
+      </a>
+      <a mat-button [routerLink]="'/board'" routerLinkActive="selected" [appTooltip]="translations.navigateToBoard" i18n="@@board">
+          Board
+      </a>
+  </div>
+  <app-language-selector></app-language-selector>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

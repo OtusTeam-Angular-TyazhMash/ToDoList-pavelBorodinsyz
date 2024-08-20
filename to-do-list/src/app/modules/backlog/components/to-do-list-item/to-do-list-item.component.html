@@ -1,0 +1,25 @@
+<div class="item-container">
+    <mat-checkbox [checked]="item.status === toDoListItemStatus.Completed" (change)="emitItemStatusChange($event)" />
+    <ng-container *ngIf="isEditMode; then editTemplate; else viewTemplate"></ng-container>
+</div>
+
+<ng-template #editTemplate>
+    <mat-list-item>
+        {{item.id}}
+        <mat-form-field subscriptSizing="dynamic">
+            <mat-label i18n="@@change_field">Change Field</mat-label>
+            <input matInput type="text" [(ngModel)]="itemTitle">
+        </mat-form-field>
+        <icon-button matListItemMeta style="margin: 0px;" [icon]="'edit'" [appTooltip]="translations.turnOffEditMode" (click)="turnEditMode()"></icon-button>
+    </mat-list-item>
+</ng-template>
+<ng-template #viewTemplate>
+    <mat-list-item>
+        <mat-list-option color="primary" [value]="item.id" [appTooltip]="translations.clickToKnowMore">
+            {{item.id}}
+            {{item.text}}
+        </mat-list-option>
+        <icon-button matListItemMeta style="margin: 0px;" (click)="turnEditMode()" [icon]="'edit'" [appTooltip]="translations.editItem"></icon-button>
+        <delete-button matListItemMeta style="margin: 0px;" (click)="emitDeleteItem(item.id); $event.stopPropagation()" [appTooltip]="translations.deleteItemFromList" i18n="@@delete">Delete</delete-button>
+    </mat-list-item>
+</ng-template>

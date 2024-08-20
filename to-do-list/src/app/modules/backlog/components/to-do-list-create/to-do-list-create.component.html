@@ -1,0 +1,11 @@
+<form [formGroup]="toDoItemForm" class="action-form">
+    <mat-form-field class="input-full-width">
+      <mat-label i18n="@@add_new_todo">Add new todo</mat-label>
+      <input matInput type="text" formControlName="text">
+    </mat-form-field>
+    <mat-form-field  class="input-full-width">
+      <mat-label i18n="@@add_new_description">Add description</mat-label>
+      <textarea matInput type="text" formControlName="description"></textarea>
+    </mat-form-field>
+    <save-button class="fill-button" [type]="'stroked'" matSuffix (click)="emitCreatingItem()" [appTooltip]="translations.addNewItemToList" i18n="@@save">Save</save-button>
+  </form>

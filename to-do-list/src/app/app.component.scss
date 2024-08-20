@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    height: 100vh;
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    align-items: center;
+    padding: 4px;
+    border-right: 1px #dadada dotted;
+}
+
+.header {
+    margin: 16px 0;
+    font-weight: 500;
+}
+
+.navigation {
+    display: flex;
+    flex: 1;
+    overflow: auto;
+    width: 100%;
+    gap: 4px;
+    flex-direction: column;
+    margin-top: 16px;
+
+    a {
+        justify-content: flex-start;
+
+    }
+}
+
+.content {
+    flex: 1;
+    overflow: auto;
+    padding: 4px;
+}
+
+.selected {
+    background-color: #dadada;
+}

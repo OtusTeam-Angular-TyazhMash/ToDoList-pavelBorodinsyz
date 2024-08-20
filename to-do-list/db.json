@@ -1,0 +1,34 @@
+{
+  "to-do-list": [
+    {
+      "id": "1",
+      "text": "Покормить кота",
+      "description": "Он хочет кушать",
+      "status": "InProgress"
+    },
+    {
+      "id": "2",
+      "text": "Поставить чайник",
+      "description": "Надо вскипятить воду",
+      "status": "Completed"
+    },
+    {
+      "id": "3",
+      "text": "Выключить чайник",
+      "description": "Чтобы дом не сгорел",
+      "status": "Completed"
+    },
+    {
+      "id": "4",
+      "text": "Налить чай",
+      "description": "Крепкий, свежий чай",
+      "status": "Completed"
+    },
+    {
+      "id": "5",
+      "text": "Выпить чай",
+      "description": "Насладиться вкусом",
+      "status": "InProgress"
+    }
+  ]
+}

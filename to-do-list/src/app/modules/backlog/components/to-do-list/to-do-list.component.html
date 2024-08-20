@@ -1,0 +1,44 @@
+<ng-container *ngIf="isLoading === true; then loadingTemplate; else toDoListTemplate" />
+<ng-template #loadingTemplate>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>
+<ng-template #toDoListTemplate>
+  <div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+              <span i18n="@@show_todo">Show todo: </span>
+              <mat-button-toggle-group [value]="null" (change)="onStatusFilterChange($event)">
+                <mat-button-toggle [value]="null" i18n="@@all">All</mat-button-toggle>
+                <mat-button-toggle [value]="toDoListItemEnum.InProgress">{{translatedToDoListItemStatus['InProgress']}}</mat-button-toggle>
+                <mat-button-toggle [value]="toDoListItemEnum.Completed">{{translatedToDoListItemStatus.Completed}}</mat-button-toggle>
+            </mat-button-toggle-group>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div *ngIf="(toDoListItems$ | async) as toDoListItems">
+              <mat-selection-list [multiple]="false" hideSingleSelectionIndicator>
+                <app-to-do-list-item *ngFor="let item of toDoListItems" [item]="item" [routerLink]="[item.id]"
+                (emitDelete)="deleteItem($event)"
+                (emitChangeText)="editToDoListItemTitleById(item.id, $event)"
+                (emitChangeStatus)="editToDoListItemStatusById(item.id, $event)"></app-to-do-list-item>
+              </mat-selection-list>
+            </div>
+          </mat-card-content>
+          <mat-card-content>
+            <div>
+              <ng-container *ngIf="getItemIdFromRoute !== null; then descriptionTemplate; else hintTemplate" />
+              <ng-template #descriptionTemplate>
+                  <router-outlet></router-outlet>
+              </ng-template>
+              <ng-template #hintTemplate>
+                  <p i18n="@@select_list_item">Select todo list item...</p>
+              </ng-template>
+            </div>
+          </mat-card-content>
+          <mat-card-content>
+            <app-to-do-list-create (emitNewItem)="addToDoListItem($event)"></app-to-do-list-create>
+          </mat-card-content>
+    </mat-card>
+</div>
+</ng-template>

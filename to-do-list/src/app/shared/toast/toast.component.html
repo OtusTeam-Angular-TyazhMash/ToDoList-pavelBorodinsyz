@@ -1,0 +1,4 @@
+<div class="toast" *ngFor="let message of (getMessages | async)">
+    <mat-icon aria-hidden="false" aria-label="Info" fontIcon="info" />
+    <span>{{message}}</span>
+</div>

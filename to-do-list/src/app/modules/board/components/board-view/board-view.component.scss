@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+    gap: 16px;
+}
+
+.header {
+    flex: 0;
+}
+
+.board-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.success {
+    background-color: #30c77e;
+}
+
+.warning {
+    background-color: #ff9d09;
+}

@@ -1,0 +1,22 @@
+<ng-container [ngSwitch]="type">
+    <ng-template ngSwitchCase="none">
+        <button mat-button color="primary">
+            <ng-content></ng-content>
+        </button>
+    </ng-template>
+    <ng-template ngSwitchCase="flat">
+        <button mat-flat-button color="primary">
+            <ng-content></ng-content>
+        </button>
+    </ng-template>
+    <ng-template ngSwitchCase="raised">
+        <button mat-raised-button color="primary">
+            <ng-content></ng-content>
+        </button>
+    </ng-template>
+    <ng-template ngSwitchCase="stroked">
+        <button mat-stroked-button color="stroked">
+            <ng-content></ng-content>
+        </button>
+    </ng-template>
+</ng-container>
